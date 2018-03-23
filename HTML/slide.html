@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<style>
+#slidecontainer1 {
+    width: 80%; 
+}
+
+.slider1 {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider1:hover {
+    opacity: 1;
+}
+
+.slider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider1::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+<body>
+
+<h1>Round Range Slider</h1>
+
+<div id="slidecontainer1">
+  <input type="range" min="1" max="100" value="50" class="slider1" id="myRange1" style="display: inline-block;">
+  <p style="display: inline-block;">Value: <span id="demo1"></span></p>
+</div>
+<script>
+var slider1 = document.getElementById("myRange1");
+var output1 = document.getElementById("demo1");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+</script>
+
+</body>
+</html>
