@@ -24,14 +24,17 @@ int blueNew;
 int greenNew;
 ESP8266WebServer server(80); //Web server object. Will be listening in port 80 (default for HTTP)
 void setup() {
-  /*WiFi.begin("Rajwadu..", "10mbpsplan"); //Connect to the WiFi network
+  //USING WIFI ROUTER
+  /*WiFi.begin(WIFI_SSID, WIFI_PASSWORD); //Connect to the WiFi network
   while (WiFi.status() != WL_CONNECTED) { //Wait for connection
     delay(500);
     Serial.println("Waiting to connect…");
   }
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP()); //Print the local IP to access the server*/
-  WiFi.softAP("prz","12345678");
+  
+  //USING SOFTAP
+  WiFi.softAP(SSID,PASSWORD);
   IPAddress ipp = WiFi.softAPIP();
   server.on("/genericArgs", handleGenericArgs); //Associate the handler function to the path
   server.begin(); //Start the server
